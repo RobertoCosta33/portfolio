@@ -1,8 +1,12 @@
+import { Typography } from "@mui/material";
+
 const Repositories = () => {
   return (
     <div>
-      <h1>Repositórios</h1>
-      <p>Este é o conteúdo da página repositórios</p>
+      <Typography variant="h1">Repositórios</Typography>
+      <Typography variant="h2">
+        Este é o conteúdo da página repositórios
+      </Typography>
     </div>
   );
 };

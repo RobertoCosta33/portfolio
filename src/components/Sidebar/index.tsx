@@ -1,12 +1,9 @@
 import {
   Avatar,
-  Card,
-  CardContent,
-  CardMedia,
   Divider,
   Typography,
 } from "@mui/material";
-import RomeroImage from "../../../public/images/romero.jpeg";
+import romeroImage from "../../../public/images/romero.jpeg";
 import MenuList from "./MenuList";
 import * as S from "./styles";
 
@@ -16,7 +13,7 @@ const Sidebar = () => {
       <S.AvatarWrapper>
         <Avatar
           alt="Remy Sharp"
-          src={RomeroImage.src}
+          src={romeroImage.src}
           sx={{ width: "9rem", height: "9rem" }}
         />
 

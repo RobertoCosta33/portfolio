@@ -7,7 +7,6 @@ import MainContent from "@/components/MainContent";
 import { defaultTheme } from "@/styles/theme";
 import { useState } from "react";
 import {
-  FormControl,
   FormControlLabel,
   FormGroup,
   Switch,
@@ -16,7 +15,7 @@ import {
 import { ThemeProvider } from "styled-components";
 import { ThemeProvider as ThemeProviderMui } from "@mui/material";
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   const [themeMode, setThemeMode] = useState<string>("light");
 
   const toggleTheme = () => {
@@ -44,11 +43,11 @@ export default function App({ Component, pageProps }: AppProps) {
                   label={
                     themeMode === "light" ? (
                       <Typography color={theme.palette.text.primary}>
-                        Light
+                        Claro
                       </Typography>
                     ) : (
                       <Typography color={theme.palette.text.primary}>
-                        Dark
+                        Escuro
                       </Typography>
                     )
                   }
@@ -65,3 +64,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </ThemeProvider>
   );
 }
+
+export default App;

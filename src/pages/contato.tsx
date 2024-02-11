@@ -1,10 +1,12 @@
+import { Typography } from "@mui/material";
+
 const Contact = () => {
-    return (
-        <div>
-            <h1>Contato</h1>
-            <p>Este é o conteúdo da página contato</p>
-        </div>
-    )
-}
+  return (
+    <div>
+      <Typography variant="h1">Contato</Typography>
+      <Typography variant="h2">Este é o conteúdo da página contato</Typography>
+    </div>
+  );
+};
 
 export default Contact;
