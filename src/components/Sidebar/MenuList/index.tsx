@@ -6,44 +6,41 @@ import {
   MenuItem,
   Typography,
 } from "@mui/material";
-import {
-  Home,
-  Info,
-  Mail,
-  Code,
-  ThreeDRotation,
-  Edit,
-  List,
-  Description,
-} from "@mui/icons-material";
 import * as S from "./styles";
+import { useEffect, useState } from "react";
+import { IMenuItemsProps } from "@/pages/api/RedirectMenuItemsService";
+import { IExamplesItemsProps } from "@/pages/api/RedirectExamplesItemsService";
+import axios from "axios";
+import { getIcon } from "./iconMenus";
 
 const MenuList = () => {
-  const listItems = [
-    { text: "Home", icon: <Home />, id: "1", href: "/" },
-    { text: "Sobre", icon: <Info />, id: "2", href: "/sobre" },
-    { text: "Contato", icon: <Mail />, id: "3", href: "/contato" },
-    { text: "Repositórios", icon: <Code />, id: "4", href: "/repositorios" },
-  ];
+  const [menuItems, setMenuItems] = useState<IMenuItemsProps[]>([]);
+  const [exampleItems, setExampleItems] = useState<IExamplesItemsProps[]>([]);
 
-  const demoItems = [
-    {
-      text: "Projetos 3D",
-      icon: <ThreeDRotation />,
-      id: "5",
-      href: "/projetos_3d",
-    },
-    { text: "CRUD", icon: <Edit />, id: "6", href: "/crud" },
-    { text: "Lista", icon: <List />, id: "7", href: "/lista" },
-    { text: "Formulário", icon: <Description />, id: "8", href: "/formulario" },
-  ];
+  useEffect(() => {
+    const getMenuItems = async () => {
+      const { data } = await axios.get("/api/RedirectMenuItemsService");
+      setMenuItems(data);
+    };
+
+    getMenuItems();
+  }, []);
+
+  useEffect(() => {
+    const getExamplesItems = async () => {
+      const { data } = await axios.get("/api/RedirectExamplesItemsService");
+      setExampleItems(data);
+    };
+
+    getExamplesItems();
+  }, []);
 
   return (
     <S.Menu>
-      {listItems.map(({ text, icon, id, href }) => (
+      {menuItems.map(({ text, id, icon, href }) => (
         <Link href={href} key={id} underline="none">
           <MenuItem divider>
-            <ListItemIcon>{icon}</ListItemIcon>
+            <ListItemIcon>{getIcon(icon)}</ListItemIcon>
             <ListItemText>
               <Typography variant="h6">{text}</Typography>
             </ListItemText>
@@ -55,10 +52,10 @@ const MenuList = () => {
         <Typography variant="h6">Exemplos</Typography>
       </Divider>
 
-      {demoItems.map(({ text, icon, id, href }) => (
+      {exampleItems.map(({ text, icon, id, href }) => (
         <Link href={href} key={id} underline="none">
           <MenuItem divider>
-            <ListItemIcon>{icon}</ListItemIcon>
+            <ListItemIcon>{getIcon(icon)}</ListItemIcon>
             <ListItemText>
               <Typography variant="h6">{text}</Typography>
             </ListItemText>
