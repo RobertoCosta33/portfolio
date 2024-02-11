@@ -5,13 +5,8 @@ import Sidebar from "@/components/Sidebar";
 import Navbar from "@/components/Navbar";
 import MainContent from "@/components/MainContent";
 import { defaultTheme } from "@/styles/theme";
-import { useState } from "react";
-import {
-  FormControlLabel,
-  FormGroup,
-  Switch,
-  Typography,
-} from "@mui/material";
+import { useEffect, useState } from "react";
+import { FormControlLabel, FormGroup, Switch, Typography } from "@mui/material";
 import { ThemeProvider } from "styled-components";
 import { ThemeProvider as ThemeProviderMui } from "@mui/material";
 
@@ -20,9 +15,19 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   const toggleTheme = () => {
     setThemeMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+    
+    localStorage.setItem("theme", themeMode === "light" ? "dark" : "light");
   };
 
   const theme = themeMode === "light" ? defaultTheme.light : defaultTheme.dark;
+
+  useEffect(() => {
+    const localTheme = localStorage.getItem("theme");
+    
+    if (localTheme) {
+      setThemeMode(localTheme);
+    }
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -63,6 +68,6 @@ const App = ({ Component, pageProps }: AppProps) => {
       </ThemeProviderMui>
     </ThemeProvider>
   );
-}
+};
 
 export default App;
