@@ -7,9 +7,15 @@ export interface IExamplesItemsProps {
   href: string;
 }
 
+interface IErrorResponseProps {
+  error: string;
+}
+
+type ResponseType = IExamplesItemsProps[] | IErrorResponseProps;
+
 const getExamplesItems = (
   req: NextApiRequest,
-  res: NextApiResponse<IExamplesItemsProps[]>
+  res: NextApiResponse<ResponseType>
 ) => {
   const exampleItems = [
     {
@@ -28,7 +34,11 @@ const getExamplesItems = (
     },
   ];
 
-  res.status(200).json(exampleItems);
+  try {
+    res.status(200).json(exampleItems);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error in getExamplesItems" });
+  }
 };
 
 export default getExamplesItems;

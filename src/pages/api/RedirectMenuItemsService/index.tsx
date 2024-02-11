@@ -7,9 +7,15 @@ export interface IMenuItemsProps {
   href: string;
 }
 
+interface IErrorResponseProps {
+  error: string;
+}
+
+type ResponseType = IMenuItemsProps[] | IErrorResponseProps;
+
 const getMenuItems = (
   req: NextApiRequest,
-  res: NextApiResponse<IMenuItemsProps[]>
+  res: NextApiResponse<ResponseType>
 ) => {
   const menuItems = [
     { text: "Home", icon: "Home", id: "1", href: "/" },
@@ -18,7 +24,11 @@ const getMenuItems = (
     { text: "Repositórios", icon: "Code", id: "4", href: "/repositorios" },
   ];
 
-  res.status(200).json(menuItems);
+  try {
+    res.status(200).json(menuItems);
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error in getting Menu Items." });
+  }
 };
 
 export default getMenuItems;
