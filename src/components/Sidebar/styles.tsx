@@ -1,7 +1,12 @@
 import styled, { css } from "styled-components";
+import media from "styled-media-query";
 
-export const SidebarWrapper = styled.section`
-  ${({ theme }) => css`
+interface SidebarProps {
+  isVisible?: boolean;
+}
+
+export const SidebarWrapper = styled.section<SidebarProps>`
+  ${({ theme, isVisible }) => css`
     flex: 3;
     border-right: 1px solid ${theme.palette.text.primary};
     background-color: ${theme.palette.background.default};
@@ -9,8 +14,14 @@ export const SidebarWrapper = styled.section`
 
     overflow-y: auto;
 
-    @media (max-width: 900px) {
-      display: none;
+    transition: opacity 0.4s ease-in-out, flex 0.4s ease-in-out,
+      height 0.4s ease-in-out, padding 0.4s ease-in-out;
+
+    @media (max-width: 1280px) {
+      opacity: ${isVisible ? 1 : 0};
+      flex: ${isVisible ? 9 : 0};
+      height: ${isVisible ? "auto" : "0"};
+      padding: ${isVisible ? "2rem" : "0"};
     }
   `}
 `;
@@ -38,5 +49,21 @@ export const AvatarWrapper = styled.article`
     p {
       color: ${theme.palette.text.primary};
     }
+
+    ${media.lessThan("medium")`
+      ${() => css`
+        h5 {
+          font-size: 1.2rem;
+        }
+      `}
+    `}
+
+    ${media.lessThan("small")`
+      ${() => css`
+        h5 {
+          font-size: 0.8rem;
+        }
+      `}
+    `}
   `}
 `;

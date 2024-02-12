@@ -11,11 +11,12 @@ import { ThemeProvider } from "styled-components";
 import { ThemeProvider as ThemeProviderMui } from "@mui/material";
 
 const App = ({ Component, pageProps }: AppProps) => {
+  const [isVisible, setIsVisible] = useState<boolean>(false);
   const [themeMode, setThemeMode] = useState<string>("light");
 
   const toggleTheme = () => {
     setThemeMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-    
+
     localStorage.setItem("theme", themeMode === "light" ? "dark" : "light");
   };
 
@@ -23,7 +24,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   useEffect(() => {
     const localTheme = localStorage.getItem("theme");
-    
+
     if (localTheme) {
       setThemeMode(localTheme);
     }
@@ -33,10 +34,13 @@ const App = ({ Component, pageProps }: AppProps) => {
     <ThemeProvider theme={theme}>
       <ThemeProviderMui theme={theme}>
         <S.HomeWrapper>
-          <Sidebar />
+          <Sidebar isVisible={isVisible} />
 
           <S.MainNavWrapper>
-            <Navbar>
+            <Navbar
+              isVisible={isVisible}
+              handleToggleMenu={() => setIsVisible(!isVisible)}
+            >
               <FormGroup>
                 <FormControlLabel
                   control={
@@ -60,6 +64,7 @@ const App = ({ Component, pageProps }: AppProps) => {
                 />
               </FormGroup>
             </Navbar>
+
             <MainContent>
               <Component {...pageProps} />
             </MainContent>

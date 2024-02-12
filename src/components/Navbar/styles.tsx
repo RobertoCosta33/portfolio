@@ -20,3 +20,28 @@ export const NavbarWrapper = styled.section`
     }
   `}
 `;
+
+export const NavbarContent = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    svg {
+      color: ${theme.palette.text.primary};
+      width: 2.4rem;
+      height: 2.4rem;
+
+      cursor: pointer;
+    }
+
+    :hover {
+      svg {
+        color: ${theme.palette.primary.main};
+        transition: color 0.2s ease-in-out;
+      }
+    }
+  `}
+`;

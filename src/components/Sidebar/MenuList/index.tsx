@@ -12,8 +12,11 @@ import { IMenuItemsProps } from "@/pages/api/RedirectMenuItemsService";
 import { IExamplesItemsProps } from "@/pages/api/RedirectExamplesItemsService";
 import axios from "axios";
 import { getIcon } from "./iconMenus";
+import MediaMatch from "@/components/MediaMatch";
 
 const MenuList = () => {
+  const { isSmartphone } = MediaMatch();
+
   const [menuItems, setMenuItems] = useState<IMenuItemsProps[]>([]);
   const [exampleItems, setExampleItems] = useState<IExamplesItemsProps[]>([]);
 
@@ -41,14 +44,21 @@ const MenuList = () => {
         <Link href={href} key={id} underline="none">
           <MenuItem divider>
             <ListItemIcon>{getIcon(icon)}</ListItemIcon>
-            <ListItemText>
+            <ListItemText
+              sx={{ display: `${isSmartphone ? "none" : "inline-block"}` }}
+            >
               <Typography variant="h6">{text}</Typography>
             </ListItemText>
           </MenuItem>
         </Link>
       ))}
 
-      <Divider sx={{ margin: "4rem 0" }}>
+      <Divider
+        sx={{
+          margin: "4rem 0",
+          display: `${isSmartphone ? "none" : "inline-block"}`,
+        }}
+      >
         <Typography variant="h6">Exemplos</Typography>
       </Divider>
 
@@ -56,7 +66,9 @@ const MenuList = () => {
         <Link href={href} key={id} underline="none">
           <MenuItem divider>
             <ListItemIcon>{getIcon(icon)}</ListItemIcon>
-            <ListItemText>
+            <ListItemText
+              sx={{ display: `${isSmartphone ? "none" : "inline-block"}` }}
+            >
               <Typography variant="h6">{text}</Typography>
             </ListItemText>
           </MenuItem>
