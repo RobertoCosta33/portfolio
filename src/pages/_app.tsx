@@ -10,11 +10,12 @@ import { FormControlLabel, FormGroup, Switch, Typography } from "@mui/material";
 import { ThemeProvider } from "styled-components";
 import { ThemeProvider as ThemeProviderMui } from "@mui/material";
 import MediaMatch from "@/components/MediaMatch";
+import { MenuProvider, useMenu } from "@/contexts/MenuContext";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const { isDesktop } = MediaMatch();
+  const { setIsVisible } = useMenu();
 
-  const [isVisible, setIsVisible] = useState<boolean>(false);
   const [themeMode, setThemeMode] = useState<string>();
 
   const toggleTheme = () => {
@@ -35,53 +36,47 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   useEffect(() => {
     if (isDesktop) setIsVisible(false);
-  }, [isDesktop]);
-
-  const handleCloseMenu = () => setIsVisible(false);
+  }, [isDesktop, setIsVisible]);
 
   return (
     <ThemeProvider theme={theme}>
       <ThemeProviderMui theme={theme}>
-        <S.HomeWrapper>
-          <Sidebar isVisible={isVisible} />
+        <MenuProvider>
+          <S.HomeWrapper>
+            <Sidebar />
 
-          <S.MainNavWrapper>
-            <Navbar
-              isVisible={isVisible}
-              handleToggleMenu={() => setIsVisible(!isVisible)}
-            >
-              <FormGroup>
-                <FormControlLabel
-                  control={
-                    <Switch
-                      onChange={toggleTheme}
-                      checked={themeMode === "dark"}
-                    />
-                  }
-                  label={
-                    themeMode === "light" ? (
-                      <Typography color={theme.palette.text.primary}>
-                        Claro
-                      </Typography>
-                    ) : (
-                      <Typography color={theme.palette.text.primary}>
-                        Escuro
-                      </Typography>
-                    )
-                  }
-                  labelPlacement="start"
-                />
-              </FormGroup>
-            </Navbar>
+            <S.MainNavWrapper>
+              <Navbar>
+                <FormGroup>
+                  <FormControlLabel
+                    control={
+                      <Switch
+                        onChange={toggleTheme}
+                        checked={themeMode === "dark"}
+                      />
+                    }
+                    label={
+                      themeMode === "light" ? (
+                        <Typography color={theme.palette.text.primary}>
+                          Claro
+                        </Typography>
+                      ) : (
+                        <Typography color={theme.palette.text.primary}>
+                          Escuro
+                        </Typography>
+                      )
+                    }
+                    labelPlacement="start"
+                  />
+                </FormGroup>
+              </Navbar>
 
-            <MainContent
-              isVisible={isVisible}
-              handleCloseMenu={handleCloseMenu}
-            >
-              <Component {...pageProps} />
-            </MainContent>
-          </S.MainNavWrapper>
-        </S.HomeWrapper>
+              <MainContent>
+                <Component {...pageProps} />
+              </MainContent>
+            </S.MainNavWrapper>
+          </S.HomeWrapper>
+        </MenuProvider>
       </ThemeProviderMui>
     </ThemeProvider>
   );

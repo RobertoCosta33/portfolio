@@ -1,19 +1,16 @@
 import { ReactNode } from "react";
 import * as S from "./styles";
+import { useMenu } from "@/contexts/MenuContext";
 
 interface IMainContentProps {
   children: ReactNode;
-  isVisible: boolean;
-  handleCloseMenu: () => void;
 }
 
-const MainContent = ({
-  children,
-  isVisible,
-  handleCloseMenu,
-}: IMainContentProps) => {
+const MainContent = ({ children }: IMainContentProps) => {
+  const { visible, setIsVisible } = useMenu();
+
   return (
-    <S.MainContentWrapper isVisible={isVisible} onClick={handleCloseMenu}>
+    <S.MainContentWrapper visible={visible} onClick={() => setIsVisible(false)}>
       {children}
 
       <S.Overlay />

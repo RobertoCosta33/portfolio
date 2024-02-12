@@ -1,14 +1,14 @@
 import MediaMatch from "../MediaMatch";
 import { Menu, Close } from "@mui/icons-material";
 import * as S from "./styles";
+import { useMenu } from "@/contexts/MenuContext";
 
 interface INavbarProps {
   children?: React.ReactNode;
-  isVisible?: boolean;
-  handleToggleMenu?: () => void;
 }
 
-const Navbar = ({ children, isVisible, handleToggleMenu }: INavbarProps) => {
+const Navbar = ({ children }: INavbarProps) => {
+  const { visible, setIsVisible } = useMenu();
   const mediaMath = MediaMatch();
 
   return (
@@ -18,8 +18,8 @@ const Navbar = ({ children, isVisible, handleToggleMenu }: INavbarProps) => {
       {!mediaMath.isDesktop && (
         <S.NavbarContent>
           <div>
-            {!isVisible && <Menu onClick={handleToggleMenu} />}
-            {isVisible && <Close onClick={handleToggleMenu} />}
+            {!visible && <Menu onClick={() => setIsVisible(!visible)} />}
+            {visible && <Close onClick={() => setIsVisible(false)} />}
           </div>
 
           <div>{children}</div>

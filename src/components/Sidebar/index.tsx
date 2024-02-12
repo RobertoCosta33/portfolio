@@ -3,18 +3,16 @@ import romeroImage from "../../../public/images/romero.jpeg";
 import MenuList from "./MenuList";
 import * as S from "./styles";
 import MediaMatch from "../MediaMatch";
+import { useMenu } from "@/contexts/MenuContext";
 
-interface SidebarProps {
-  isVisible?: boolean;
-}
-
-const Sidebar = ({ isVisible = true }: SidebarProps) => {
+const Sidebar = () => {
+  const { visible } = useMenu();
   const { isTablet, isMobile } = MediaMatch();
 
   const imageDimenssions = isMobile ? "4rem" : isTablet ? "6rem" : "8rem";
 
   return (
-    <S.SidebarWrapper isVisible={isVisible}>
+    <S.SidebarWrapper visible={visible}>
       <S.AvatarWrapper>
         <Avatar
           alt="Remy Sharp"

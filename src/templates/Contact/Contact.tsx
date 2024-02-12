@@ -28,7 +28,7 @@ const ContactTemplate = () => {
               </IconButton>
             </article>
 
-            <Divider sx={{ width: "100%" }} />
+            <Divider sx={{ width: "100%" }} variant="fullWidth" />
           </div>
         );
       })}
