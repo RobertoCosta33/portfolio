@@ -8,12 +8,14 @@ const MediaMatch = () => {
       setWindowWidth(window.innerWidth);
     };
 
+    updateWindowWidth();
+
     window.addEventListener("resize", updateWindowWidth);
 
     return () => {
       window.removeEventListener("resize", updateWindowWidth);
     };
-  }, [windowWidth]);
+  }, []);
 
   const isMobileDevice = () => windowWidth < 640;
 
