@@ -8,7 +8,7 @@ interface SidebarProps {
   isVisible?: boolean;
 }
 
-const Sidebar = ({ isVisible }: SidebarProps) => {
+const Sidebar = ({ isVisible = true }: SidebarProps) => {
   const { isTablet, isMobile } = MediaMatch();
 
   const imageDimenssions = isMobile ? "4rem" : isTablet ? "6rem" : "8rem";

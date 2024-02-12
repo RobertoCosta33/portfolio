@@ -14,16 +14,18 @@ export const SidebarWrapper = styled.section<SidebarProps>`
 
     overflow-y: auto;
 
-    transition: opacity 0.4s ease-in-out, flex 0.4s ease-in-out,
-      height 0.4s ease-in-out, padding 0.4s ease-in-out;
-
     ${media.lessThan("large")`
       ${() => css`
         opacity: ${isVisible ? 1 : 0};
         flex: ${isVisible ? 9 : 0};
         height: ${isVisible ? "100vh" : "0"};
         padding: ${isVisible ? "2rem" : "0"};
-        border-right: ${isVisible ? `1px solid ${theme.palette.text.primary}` : "none"};
+        border-right: ${isVisible
+          ? `1px solid ${theme.palette.text.primary}`
+          : "none"};
+
+        transition: opacity 0.4s ease-in-out, flex 0.4s ease-in-out,
+          height 0.4s ease-in-out, padding 0.4s ease-in-out;
       `}
     `}
   `}
