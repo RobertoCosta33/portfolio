@@ -14,6 +14,7 @@ export const MainContentWrapper = styled.section<IMainContentWrapperProps>`
     padding: ${isVisible ? '0' : '4rem'};
     background-color: ${theme.palette.background.default};
     overflow-y: auto;
+    height: 100vh;
 
     h1 {
       font-size: 2rem;

@@ -21,8 +21,9 @@ export const SidebarWrapper = styled.section<SidebarProps>`
       ${() => css`
         opacity: ${isVisible ? 1 : 0};
         flex: ${isVisible ? 9 : 0};
-        height: ${isVisible ? "auto" : "0"};
+        height: ${isVisible ? "100vh" : "0"};
         padding: ${isVisible ? "2rem" : "0"};
+        border-right: ${isVisible ? `1px solid ${theme.palette.text.primary}` : "none"};
       `}
     `}
   `}
