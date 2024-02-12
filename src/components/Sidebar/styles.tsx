@@ -17,12 +17,20 @@ export const SidebarWrapper = styled.section<SidebarProps>`
     transition: opacity 0.4s ease-in-out, flex 0.4s ease-in-out,
       height 0.4s ease-in-out, padding 0.4s ease-in-out;
 
-    @media (max-width: 1280px) {
-      opacity: ${isVisible ? 1 : 0};
-      flex: ${isVisible ? 9 : 0};
-      height: ${isVisible ? "auto" : "0"};
-      padding: ${isVisible ? "2rem" : "0"};
-    }
+    ${media.lessThan("large")`
+      ${() => css`
+        opacity: ${isVisible ? 1 : 0};
+        flex: ${isVisible ? 3 : 0};
+        height: ${isVisible ? "auto" : "0"};
+        padding: ${isVisible ? "2rem" : "0"};
+      `}
+    `}
+
+    ${media.lessThan("medium")`
+      ${() => css`
+        flex: ${isVisible ? 9 : 0};
+      `}
+    `}
   `}
 `;
 

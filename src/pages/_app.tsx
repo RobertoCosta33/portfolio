@@ -9,8 +9,11 @@ import { useEffect, useState } from "react";
 import { FormControlLabel, FormGroup, Switch, Typography } from "@mui/material";
 import { ThemeProvider } from "styled-components";
 import { ThemeProvider as ThemeProviderMui } from "@mui/material";
+import MediaMatch from "@/components/MediaMatch";
 
 const App = ({ Component, pageProps }: AppProps) => {
+  const { isDesktop } = MediaMatch();
+
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [themeMode, setThemeMode] = useState<string>("light");
 
@@ -29,6 +32,12 @@ const App = ({ Component, pageProps }: AppProps) => {
       setThemeMode(localTheme);
     }
   }, []);
+
+  useEffect(() => {
+    if (isDesktop) setIsVisible(false);
+  }, [isDesktop]);
+
+  const handleCloseMenu = () => setIsVisible(false);
 
   return (
     <ThemeProvider theme={theme}>
@@ -65,7 +74,10 @@ const App = ({ Component, pageProps }: AppProps) => {
               </FormGroup>
             </Navbar>
 
-            <MainContent>
+            <MainContent
+              isVisible={isVisible}
+              handleCloseMenu={handleCloseMenu}
+            >
               <Component {...pageProps} />
             </MainContent>
           </S.MainNavWrapper>

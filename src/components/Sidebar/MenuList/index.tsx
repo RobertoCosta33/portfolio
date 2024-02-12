@@ -56,7 +56,7 @@ const MenuList = () => {
       <Divider
         sx={{
           margin: "4rem 0",
-          display: `${isSmartphone ? "none" : "inline-block"}`,
+          display: `${isSmartphone ? "none" : "flex"}`,
         }}
       >
         <Typography variant="h6">Exemplos</Typography>
