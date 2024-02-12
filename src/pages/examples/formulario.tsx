@@ -1,12 +1,7 @@
-import { Typography } from "@mui/material";
+import FormTemplate from "@/templates/Form";
 
 const Form = () => {
-  return (
-    <div>
-      <Typography variant="h1">Formulário</Typography>
-      <Typography variant="h2">Este é o conteúdo da página Formulário</Typography>
-    </div>
-  );
+  return <FormTemplate />
 };
 
 export default Form;

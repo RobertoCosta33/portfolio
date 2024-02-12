@@ -15,7 +15,7 @@ const App = ({ Component, pageProps }: AppProps) => {
   const { isDesktop } = MediaMatch();
 
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [themeMode, setThemeMode] = useState<string>("light");
+  const [themeMode, setThemeMode] = useState<string>();
 
   const toggleTheme = () => {
     setThemeMode((prevMode) => (prevMode === "light" ? "dark" : "light"));

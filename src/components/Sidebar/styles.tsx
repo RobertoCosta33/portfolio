@@ -8,6 +8,7 @@ interface SidebarProps {
 export const SidebarWrapper = styled.section<SidebarProps>`
   ${({ theme, isVisible }) => css`
     flex: 3;
+
     border-right: 1px solid ${theme.palette.text.primary};
     background-color: ${theme.palette.background.default};
     padding: 2rem;
@@ -28,6 +29,26 @@ export const SidebarWrapper = styled.section<SidebarProps>`
           height 0.4s ease-in-out, padding 0.4s ease-in-out;
       `}
     `}
+
+    &::-webkit-scrollbar {
+      width: 0.4rem;
+      height: 0.4rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #555555;
+      border-radius: 0.8rem;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #414757;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #fff;
+      border-radius: 0.8rem;
+      box-shadow: inset 0.8rem 1.2rem 1.2rem #ccc;
+    }
   `}
 `;
 
@@ -38,7 +59,7 @@ export const AvatarWrapper = styled.article`
     justify-content: center;
     align-items: center;
 
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     padding: 0.8rem;
     background-color: ${theme.palette.background.paper};
     border-radius: 0.8rem;

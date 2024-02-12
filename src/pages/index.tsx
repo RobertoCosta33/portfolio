@@ -1,12 +1,7 @@
-import { Box, Typography } from "@mui/material";
+import HomeTemplate from "@/templates/Home";
 
 const Home = () => {
-  return (
-    <Box>
-      <Typography variant="h1">Home</Typography>
-      <Typography variant="h2">Este é o conteúdo da página home</Typography>
-    </Box>
-  );
+  return <HomeTemplate />;
 };
 
 export default Home;

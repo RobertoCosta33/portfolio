@@ -1,12 +1,8 @@
+import Projects3DTemplate from "@/templates/Projects3D";
 import { Typography } from "@mui/material";
 
 const Projects3D = () => {
-  return (
-    <div>
-      <Typography variant="h1">Projetos 3D</Typography>
-      <Typography variant="h2">Este é o conteúdo da página Projetos 3D</Typography>
-    </div>
-  );
+  return <Projects3DTemplate />
 };
 
 export default Projects3D;

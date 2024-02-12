@@ -20,7 +20,7 @@ const getMenuItems = (
   const menuItems = [
     { text: "Home", icon: "Home", id: "1", href: "/" },
     { text: "Sobre", icon: "Info", id: "2", href: "/sobre" },
-    { text: "Contato", icon: "Mail", id: "3", href: "/contato" },
+    { text: "Contatos", icon: "Mail", id: "3", href: "/contatos" },
     { text: "Repositórios", icon: "Code", id: "4", href: "/repositorios" },
   ];
 

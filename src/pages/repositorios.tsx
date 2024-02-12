@@ -1,14 +1,7 @@
-import { Typography } from "@mui/material";
+import RepositoriesTemplate from "@/templates/Repositories";
 
 const Repositories = () => {
-  return (
-    <div>
-      <Typography variant="h1">Repositórios</Typography>
-      <Typography variant="h2">
-        Este é o conteúdo da página repositórios
-      </Typography>
-    </div>
-  );
+  return <RepositoriesTemplate />
 };
 
 export default Repositories;

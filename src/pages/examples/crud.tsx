@@ -1,12 +1,7 @@
-import { Typography } from "@mui/material";
+import CrudTemplate from "@/templates/Crud";
 
 const Crud = () => {
-  return (
-    <div>
-      <Typography variant="h1">CRUD</Typography>
-      <Typography variant="h2">Este é o conteúdo da página CRUD</Typography>
-    </div>
-  );
+  return <CrudTemplate />
 };
 
 export default Crud;

@@ -9,7 +9,7 @@ export const MainContentWrapper = styled.section<IMainContentWrapperProps>`
   ${({ theme, isVisible }) => css`
     flex: 9;
     position: relative;
-    cursor: ${isVisible ? 'pointer' : 'default'};
+    cursor: ${isVisible ? "pointer" : "default"};
 
     padding: 4rem;
     background-color: ${theme.palette.background.default};
@@ -30,7 +30,7 @@ export const MainContentWrapper = styled.section<IMainContentWrapperProps>`
       color: ${theme.palette.text.primary};
     }
 
-    ${media.lessThan('medium')`
+    ${media.lessThan("medium")`
       ${() => css`
         h1 {
           font-size: 1.6rem;
@@ -42,8 +42,28 @@ export const MainContentWrapper = styled.section<IMainContentWrapperProps>`
       `}
     `}
 
+    &::-webkit-scrollbar {
+      width: 0.4rem;
+      height: 0.4rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #555555;
+      border-radius: 0.8rem;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #414757;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #fff;
+      border-radius: 0.8rem;
+      box-shadow: inset 0.8rem 1.2rem 1.2rem #ccc;
+    }
+
     ${Overlay} {
-      display: ${isVisible ? 'block' : 'none'};
+      display: ${isVisible ? "block" : "none"};
     }
   `}
 `;
@@ -58,4 +78,4 @@ export const Overlay = styled.div`
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
   `}
-`
+`;

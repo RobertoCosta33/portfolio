@@ -4,6 +4,7 @@ export const HomeWrapper = styled.section`
   ${() => css`
     display: flex;
     flex: 12;
+    height: 100vh;
   `}
 `;
 

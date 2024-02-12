@@ -1,12 +1,7 @@
-import { Typography } from "@mui/material";
+import AboutTemplate from "@/templates/About";
 
 const About = () => {
-  return (
-    <div>
-      <Typography variant="h1">Sobre</Typography>
-      <Typography variant="h2">Este é o conteúdo da página sobre</Typography>
-    </div>
-  );
+  return <AboutTemplate />
 };
 
 export default About;
