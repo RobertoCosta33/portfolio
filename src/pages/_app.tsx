@@ -8,7 +8,6 @@ import { defaultTheme } from "@/styles/theme";
 import { useEffect, useState } from "react";
 import { FormControlLabel, FormGroup, Switch, Typography } from "@mui/material";
 import { ThemeProvider } from "styled-components";
-import { ThemeProvider as ThemeProviderMui } from "@mui/material";
 import MediaMatch from "@/components/MediaMatch";
 import { MenuProvider, useMenu } from "@/contexts/MenuContext";
 
@@ -40,7 +39,6 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <ThemeProviderMui theme={theme}>
         <MenuProvider>
           <S.HomeWrapper>
             <Sidebar />
@@ -77,7 +75,6 @@ const App = ({ Component, pageProps }: AppProps) => {
             </S.MainNavWrapper>
           </S.HomeWrapper>
         </MenuProvider>
-      </ThemeProviderMui>
     </ThemeProvider>
   );
 };
