@@ -2,11 +2,11 @@ import styled, { css } from "styled-components";
 import media from "styled-media-query";
 
 interface SidebarProps {
-  isVisible?: boolean;
+  visible?: boolean;
 }
 
 export const SidebarWrapper = styled.section<SidebarProps>`
-  ${({ theme, isVisible }) => css`
+  ${({ theme, visible }) => css`
     flex: 3;
 
     border-right: 1px solid ${theme.palette.text.primary};
@@ -17,11 +17,11 @@ export const SidebarWrapper = styled.section<SidebarProps>`
 
     ${media.lessThan("large")`
       ${() => css`
-        opacity: ${isVisible ? 1 : 0};
-        flex: ${isVisible ? 9 : 0};
-        height: ${isVisible ? "100vh" : "0"};
-        padding: ${isVisible ? "2rem" : "0"};
-        border-right: ${isVisible
+        opacity: ${visible ? 1 : 0};
+        flex: ${visible ? 9 : 0};
+        height: ${visible ? "100vh" : "0"};
+        padding: ${visible ? "2rem" : "0"};
+        border-right: ${visible
           ? `1px solid ${theme.palette.text.primary}`
           : "none"};
 

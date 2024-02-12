@@ -2,14 +2,14 @@ import styled, { css } from "styled-components";
 import media from "styled-media-query";
 
 interface IMainContentWrapperProps {
-  isVisible: boolean;
+  visible: boolean;
 }
 
 export const MainContentWrapper = styled.section<IMainContentWrapperProps>`
-  ${({ theme, isVisible }) => css`
+  ${({ theme, visible }) => css`
     flex: 9;
     position: relative;
-    cursor: ${isVisible ? "pointer" : "default"};
+    cursor: ${visible ? "pointer" : "default"};
 
     padding: 4rem;
     background-color: ${theme.palette.background.default};
@@ -63,7 +63,7 @@ export const MainContentWrapper = styled.section<IMainContentWrapperProps>`
     }
 
     ${Overlay} {
-      display: ${isVisible ? "block" : "none"};
+      display: ${visible ? "block" : "none"};
     }
   `}
 `;
