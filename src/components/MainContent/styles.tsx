@@ -11,7 +11,7 @@ export const MainContentWrapper = styled.section<IMainContentWrapperProps>`
     position: relative;
     cursor: ${isVisible ? 'pointer' : 'default'};
 
-    padding: ${isVisible ? '0' : '4rem'};
+    padding: 4rem;
     background-color: ${theme.palette.background.default};
     overflow-y: auto;
     height: 100vh;
