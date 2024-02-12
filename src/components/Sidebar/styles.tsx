@@ -20,15 +20,9 @@ export const SidebarWrapper = styled.section<SidebarProps>`
     ${media.lessThan("large")`
       ${() => css`
         opacity: ${isVisible ? 1 : 0};
-        flex: ${isVisible ? 3 : 0};
+        flex: ${isVisible ? 9 : 0};
         height: ${isVisible ? "auto" : "0"};
         padding: ${isVisible ? "2rem" : "0"};
-      `}
-    `}
-
-    ${media.lessThan("medium")`
-      ${() => css`
-        flex: ${isVisible ? 9 : 0};
       `}
     `}
   `}

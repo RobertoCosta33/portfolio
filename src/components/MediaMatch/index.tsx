@@ -20,8 +20,8 @@ const MediaMatch = () => {
   return {
     isSmartphone: isMobileDevice() && windowWidth < 450,
     isMobile: isMobileDevice(),
-    isTablet: !isMobileDevice() && windowWidth < 1280,
-    isDesktop: !isMobileDevice() && windowWidth >= 1280,
+    isTablet: !isMobileDevice() && windowWidth < 1170,
+    isDesktop: !isMobileDevice() && windowWidth >= 1170,
     getWindowWidth: () => windowWidth,
   };
 };
