@@ -7,6 +7,7 @@ export const NavbarWrapper = styled.section`
     justify-content: center;
     align-items: end;
     flex: 9;
+    z-index: 9999;
 
     border-bottom: 1px solid ${theme.palette.text.primary};
     background-color: ${theme.palette.background.default};

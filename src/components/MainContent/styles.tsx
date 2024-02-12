@@ -8,7 +8,6 @@ interface IMainContentWrapperProps {
 export const MainContentWrapper = styled.section<IMainContentWrapperProps>`
   ${({ theme, visible }) => css`
     flex: 9;
-    position: relative;
     cursor: ${visible ? "pointer" : "default"};
 
     padding: 4rem;
@@ -70,7 +69,7 @@ export const MainContentWrapper = styled.section<IMainContentWrapperProps>`
 
 export const Overlay = styled.div`
   ${() => css`
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;

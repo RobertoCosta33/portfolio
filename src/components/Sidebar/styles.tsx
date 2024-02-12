@@ -8,6 +8,7 @@ interface SidebarProps {
 export const SidebarWrapper = styled.section<SidebarProps>`
   ${({ theme, visible }) => css`
     flex: 3;
+    z-index: 9999;
 
     border-right: 1px solid ${theme.palette.text.primary};
     background-color: ${theme.palette.background.default};
