@@ -14,9 +14,7 @@ const RepositoriesTemplate = () => {
     };
 
     getMenuItems();
-  }, [repoInfos]);
-  
-  console.log('repoInfos', repoInfos)
+  }, []);
 
   return (
     <S.ContactsWrapper>
