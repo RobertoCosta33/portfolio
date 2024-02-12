@@ -41,6 +41,12 @@ export const MainContentWrapper = styled.section<IMainContentWrapperProps>`
       `}
     `}
 
+    ${media.lessThan("small")`
+      ${() => css`
+        padding: ${visible ? "0.4rem" : "4rem"};
+      `}
+    `}
+
     &::-webkit-scrollbar {
       width: 0.4rem;
       height: 0.4rem;
