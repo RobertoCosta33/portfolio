@@ -25,6 +25,10 @@ export const ContactsWrapper = styled.article`
         height: 2.4rem;
       }
 
+      button {
+        color: ${theme.palette.text.primary};
+      }
+
       ${media.lessThan("medium")`
         ${() => css`
           padding: 0.8rem 0.4rem;

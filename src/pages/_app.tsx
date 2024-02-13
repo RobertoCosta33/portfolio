@@ -54,15 +54,9 @@ const App = ({ Component, pageProps }: AppProps) => {
                       />
                     }
                     label={
-                      themeMode === "light" ? (
-                        <Typography color={theme.palette.text.primary}>
-                          Claro
-                        </Typography>
-                      ) : (
-                        <Typography color={theme.palette.text.primary}>
-                          Escuro
-                        </Typography>
-                      )
+                      <Typography color={theme.palette.text.primary}>
+                        {themeMode === "light" ? "Claro" : "Escuro"}
+                      </Typography>
                     }
                     labelPlacement="start"
                   />

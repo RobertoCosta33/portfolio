@@ -60,7 +60,6 @@ export const AvatarWrapper = styled.article`
     justify-content: center;
     align-items: center;
 
-    /* margin-bottom: 2rem; */
     padding: 0.8rem;
     background-color: ${theme.palette.background.paper};
     border-radius: 0.8rem;

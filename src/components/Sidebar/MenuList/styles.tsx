@@ -17,5 +17,9 @@ export const Menu = styled.ul`
     h6 {
       color: ${theme.palette.text.primary};
     }
+
+    svg {
+      color: ${theme.palette.text.primary};
+    }
   `}
 `;
