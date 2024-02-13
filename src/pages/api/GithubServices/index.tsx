@@ -5,6 +5,7 @@ export interface IGetRepoInfosProps {
   id: number | string;
   name: string;
   description: string;
+  html_url: string
 }
 
 const getReposInfos = async (

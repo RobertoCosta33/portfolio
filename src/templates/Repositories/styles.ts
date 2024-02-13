@@ -1,3 +1,4 @@
+import { Tooltip } from "@mui/material";
 import { css, styled } from "styled-components";
 import media from "styled-media-query";
 
@@ -18,11 +19,15 @@ export const ContactsWrapper = styled.article`
       gap: 1.2rem;
 
       text-align: start;
-      padding: 1.2rem;
+      padding: 0.8rem;
 
       span {
         width: 2.4rem;
         height: 2.4rem;
+      }
+
+      button {
+        color: ${theme.palette.text.primary};
       }
 
       ${media.lessThan("medium")`
@@ -45,3 +50,7 @@ export const TitleWrapper = styled.article`
     margin-bottom: 1.2rem;
   `}
 `;
+
+// export const CustomTooltip = styled(Tooltip)`
+//   padding: 1.2rem;
+// `;
