@@ -1,4 +1,6 @@
 import {
+  Card,
+  CardContent,
   Divider,
   IconButton,
   Tooltip,
@@ -7,11 +9,11 @@ import {
   styled,
   tooltipClasses,
 } from "@mui/material";
-import * as S from "./styles";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { IGetRepoInfosProps } from "@/pages/api/GithubServices";
 import { ContentCopy } from "@mui/icons-material";
+import * as S from "./styles";
 
 const RepositoriesTemplate = () => {
   const [repoInfos, setRepoInfos] = useState<IGetRepoInfosProps[]>([]);
@@ -39,31 +41,51 @@ const RepositoriesTemplate = () => {
   }));
 
   return (
-    <S.ContactsWrapper>
+    <>
       <S.TitleWrapper>
         <Typography variant="h1">Repositórios</Typography>
       </S.TitleWrapper>
+      
+      <S.ContactsWrapper>
+        {repoInfos.map(({ id, name, description, html_url }) => (
+          <div key={id}>
+            <article>
+              <S.Card variant="elevation">
+                <S.CardContent>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "1.2rem",
+                    }}
+                  >
+                    <Typography variant="h2">Nome: {name}: </Typography>
 
-      {repoInfos.map(({ id, name, html_url }) => (
-        <div key={id}>
-          <article>
-            <Typography variant="h2">{name}: </Typography>
+                    <HtmlTooltip
+                      title={`Copiar link do repositório: ${name}`}
+                      arrow
+                      placement="top"
+                    >
+                      <IconButton onClick={() => handleCopy(html_url)}>
+                        <ContentCopy fontSize="small" />
+                      </IconButton>
+                    </HtmlTooltip>
+                  </div>
 
-            <HtmlTooltip
-              title={`Copiar link do repositório: ${name}`}
-              arrow
-              placement="top"
-            >
-              <IconButton onClick={() => handleCopy(html_url || "")}>
-                <ContentCopy fontSize="small" />
-              </IconButton>
-            </HtmlTooltip>
-          </article>
+                  <S.Divider />
 
-          <Divider sx={{ width: "100%", bgcolor: "ActiveBorder" }} />
-        </div>
-      ))}
-    </S.ContactsWrapper>
+                  {description && (
+                    <HtmlTooltip title={`${description}`} arrow placement="top">
+                      <S.Typography>Descrição: {description}</S.Typography>
+                    </HtmlTooltip>
+                  )}
+                </S.CardContent>
+              </S.Card>
+            </article>
+          </div>
+        ))}
+      </S.ContactsWrapper>
+    </>
   );
 };
 
