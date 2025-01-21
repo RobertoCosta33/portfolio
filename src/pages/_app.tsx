@@ -37,8 +37,6 @@ const App = ({ Component, pageProps }: AppProps) => {
     if (isDesktop) setIsVisible(false);
   }, [isDesktop, setIsVisible]);
 
-  // Cometario
-
   return (
     <ThemeProvider theme={theme}>
         <MenuProvider>
