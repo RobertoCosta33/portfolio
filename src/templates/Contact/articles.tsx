@@ -4,7 +4,7 @@ const articles = [
   {
     id: "1",
     icon: <WhatsApp fontSize="large" color="success" />,
-    text: "+55 13 99738 - 3272",
+    text: "+55 13 98848 - 3905",
   },
   {
     id: "2",

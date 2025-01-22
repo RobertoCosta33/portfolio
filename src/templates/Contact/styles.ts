@@ -5,6 +5,7 @@ export const ContactsWrapper = styled.article`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: start;
     justify-content: space-around;
     background-color: ${theme.palette.background.paper};
