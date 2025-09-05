@@ -4,6 +4,7 @@ import * as S from "./styles";
 const HomeTemplate = () => {
   return (
     <S.HomeWrapper>
+      <h1>Olá git labs!</h1>
       <S.TitleWrapper>
         <Typography variant="h1">Bem-vindo ao meu portfólio!</Typography>
       </S.TitleWrapper>
